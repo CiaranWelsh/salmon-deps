@@ -1,0 +1,65 @@
+
+trigger:
+  - develop
+  - master
+
+stages:
+  - stage: Build 
+    displayName: BuildStage
+    jobs:
+    - job: Linux
+      displayName: Build Linux
+      pool:
+        vmImage: linux-latest
+      steps:
+        - script: |
+            mkdir build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX="../install-azure" ..
+            cmake --build . --config Release -j 12  
+        
+
+    - job: Windows
+      displayName: Build Windows
+      pool:
+        vmImage: windows-latest
+      steps:
+        - script: |
+            mkdir build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX="../install-azure" ..
+            cmake --build . --config Release -j 12  
+
+    - job: Mac
+      displayName: Build Mac
+      pool:
+        vmImage: macos-latest
+      steps:
+        - script: |
+            mkdir build
+            cd build
+            cmake -DCMAKE_INSTALL_PREFIX="../install-azure" ..
+            cmake --build . --config Release -j 12  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
