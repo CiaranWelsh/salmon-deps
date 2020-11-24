@@ -10,7 +10,7 @@ stages:
     - job: Linux
       displayName: Build Linux
       pool:
-        vmImage: ubuntu-latest
+        vmImage: ubuntu-20.04
       steps:
         - script: |
             mkdir build
