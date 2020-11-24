@@ -1,0 +1,4 @@
+[submodule "third_party/pufferfish"]
+	path = third_party/pufferfish
+	url = https://github.com/COMBINE-lab/pufferfish.git
+
